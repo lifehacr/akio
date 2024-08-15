@@ -1,0 +1,65 @@
+#-------------------------------
+# General Site Settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yudhanjaya.com" # the base hostname & protocol for your site, e.g. http://example.com
+#wip path is not working in build
+#-------------------------------
+# Build Settings
+markdown: kramdown
+permalink: /:title
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+paginate: 5
+paginate_path: "/posts/page/:num"
+
+#-------------------------------
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /posts/:slug
+  works:
+    output: true
+    permalink: /work/:slug
+  wips:
+    output: true
+    permalink: /wip/:slug
+  notes:
+    output: true
+    permalink: /note/:slug
+
+# Pages Path
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "works"
+    values:
+      layout: "work"
+  - scope:
+      path: ""
+      type: "wips"
+    values:
+      layout: "wip"
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "note"
+
+sass:
+  sass_dir: _sass
+  style: compressed
